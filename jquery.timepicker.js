@@ -6,6 +6,9 @@
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
  * Version 1.1 -- Customised by Deepu Mohan P WarFox
+ * Changes: 1. Exception throwing bug fix
+ *          2. Setting the initial value
+ *          3. ParseInt(string, radix) {set radix to 10, because stirng beginning with 0 is considered as octal}
  */
 
 (function($){
@@ -62,38 +65,40 @@
 			}
 
 			// override with current values if applicable
-			if(v.length == 7){
+			if(v.length == 8){
 				h = parseInt(v.substr(0,2));
 				m = parseInt(v.substr(3,2));
-				p = v.substr(5);
+				p = v.substr(6);
 			}
 			
 			// build the new DOM objects
 			var output = '';
-			
-			
+						
 			output +='<table><tbody><tr><td>'
 
-			output += '<select id="h_' + i + '" class="h timepicker">';				
+			output += '<select id="h_' + i + '" class="h timepicker">';
+                        var hval;
 			for(hr in hrs){
-				output += '<option value="' + hrs[hr] + '"';
-				if(parseInt(hrs[hr]) == h) output += ' selected';
+				output += '<option value="' + hrs[hr] + '"';                                
+				if(parseInt(hrs[hr],10) == h) { output += ' selected="selected"'; hval=h; }
 				output += '>' + hrs[hr] + '</option>';
 			}
 			output += '</select></td><td>';
 	
-			output += '<select id="m_' + i + '" class="m timepicker">';				
+			output += '<select id="m_' + i + '" class="m timepicker">';
+                        var mval;
 			for(mn in mins){
 				output += '<option value="' + mins[mn] + '"';
-				if(parseInt(mins[mn]) == m) output += ' selected';
+				if(parseInt(mins[mn],10) == m) { output += ' selected="selected"'; mval = m; }
 				output += '>' + mins[mn] + '</option>';
 			}
-			output += '</select></td><td>';				
+			output += '</select></td><td>';
 	
-			output += '<select id="p_' + i + '" class="p timepicker">';				
+			output += '<select id="p_' + i + '" class="p timepicker">';
+                        var pval;
 			for(pp in ap){
 				output += '<option value="' + ap[pp] + '"';
-				if(ap[pp] == p) output += ' selected';
+				if(ap[pp] == p) { output += ' selected="selected"'; pval= p; }
 				output += '>' + ap[pp] + '</option>';
 			}
 			output += '</select></td></tr></tbody></table>';				
@@ -103,6 +108,14 @@
 			//$(this).attr('type','hidden').after(output);
 			$(this).hide().after(output);
 			//Fix bug 'Exception thrown and not caught' - Deepu -Ends
+                                                
+                        //set initial value			
+			var hval = $('#h_' + i).val();
+			var mval = $('#m_' + i).val();
+			var pval = $('#p_' + i).val();
+			var val = hval + ':' + mval +' '+ pval;
+                        $(this).val(val);
+                        
 		});
 		
 		$('select.timepicker').change(function(){
