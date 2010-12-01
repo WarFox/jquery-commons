@@ -12,40 +12,39 @@ ________________________________________________________________________________
     This will automatically center an element based on the options given.
     By default it will center the element both vertically and horizontally.
     direction : both (default), horiz, vert
-    onWindowResize: true, false (default)
+    onResize: true, false (default)
+    container: selector of the container. default is window	
 */
 jQuery.fn.center = function (options) {
 
-    var settings = {   direction : 'both', onWindowResize: false };
+    var settings = {   direction : 'both', onResize: false , container : window};
     
     jQuery.extend(settings, options);
     
+    var container = settings.container;
     var direction = settings.direction;
-    var onWindowResize = settings.onWindowResize;
+    var onResize = settings.onResize;
     var obj = this;
-    
-    //alert(direction+' : '+onWindowResize);
 
     this.css("position","absolute");    
     
     if (direction == 'both') {
-        this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
-        this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");    
+        this.css("top", ( $(container).height() - this.height() ) / 2+$(container).scrollTop() + "px");
+        this.css("left", ( $(container).width() - this.width() ) / 2+$(container).scrollLeft() + "px");    
     } else if (direction == 'horiz') {
-        this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+        this.css("left", ( $(container).width() - this.width() ) / 2+$(container).scrollLeft() + "px");
     } else if (direction == 'vert') {
-        this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
+        this.css("top", ( $(container).height() - this.height() ) / 2+$(container).scrollTop() + "px");
     }
     
-    if(onWindowResize == true) {
-        $(window).resize(function() {
-            jQuery.extend(options,{ onWindowResize: false});
+    if(onResize == true) {
+        $(container).resize(function() {
+            jQuery.extend(options,{ onResize: false});
             $(obj).center(options);
         });        
-    }    
-        
+    }
     return this;
-}
+};
 
 
 /*
@@ -105,7 +104,6 @@ jQuery.fn.populateOptions = function (names, values,options) {
 };
 
 
-
 jQuery.fn.RadioCheckBox = function () {
 
     return this.each(function() {
@@ -118,7 +116,6 @@ jQuery.fn.RadioCheckBox = function () {
             var id = $(this).attr('id');
             
             if(checked) {
-            //alert(name+' : '+id+' : '+val+' : '+checked);
                 $(':checkbox[name='+name+']').each(function() {
                 
                     if(id!=$(this).attr('id')) {
@@ -129,4 +126,3 @@ jQuery.fn.RadioCheckBox = function () {
         }).change();
     });
 };
-
