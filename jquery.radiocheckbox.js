@@ -10,7 +10,7 @@ jQuery.fn.RadioCheckBox = function () {
        
         $(this).change(function() {
         
-            var checked =  $(this).is(':checked')
+        	var checked =  $(this).is(':checked');
             var name = $(this).attr('name');
             var val = $(this).val();
             var id = $(this).attr('id');

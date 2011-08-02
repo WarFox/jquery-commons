@@ -74,7 +74,7 @@
 			// build the new DOM objects
 			var output = '';
 						
-			output +='<table><tbody><tr><td>'
+			output +='<table><tbody><tr><td>';
 
 			output += '<select id="h_' + i + '" class="h timepicker">';
                         var hval;
@@ -134,4 +134,4 @@
 
 
 
-/* SVN: $Id: jquery.timepicker.js 456 2007-07-16 19:09:57Z Jason Huck $ */
+/* SVN: $Id$ */

@@ -122,11 +122,11 @@ jQuery.fn.populateOptions = function (names, values,options) {
 
 jQuery.fn.RadioCheckBox = function () {
 
-    return this.each(function() {
+	return this.each(function() {
 
         $(this).change(function() {
 
-            var checked =  $(this).is(':checked')
+            var checked =  $(this).is(':checked');
             var name = $(this).attr('name');
             var id = $(this).attr('id');
 
