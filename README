@@ -1,0 +1,12 @@
+This project is cloned from my Google code project at
+http://code.google.com/p/jquery-commons/
+
+Requirements
+   1.Center
+   2.Select box
+   3.Validation
+   4.Right click disable
+   5.Time picker 
+
+This project is created in view of bringing few of common functionalities required during web design/development, implemented in jQuery, under a single source. 
+
