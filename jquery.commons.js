@@ -1,3 +1,11 @@
+/*
+ * jquery.commons.js
+ * https://github.com/warfox/jquery-commons
+ *
+ * Copyright (c) 2010 Deepu Mohan Puthrote
+ * Licensed under the MIT license.
+ */
+
 /**
  * Plugin to center any element in page.
  * This will automatically center an element based on the options given.

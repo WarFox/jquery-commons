@@ -1,3 +1,11 @@
+/*
+ * jquery.assert.js
+ * https://github.com/warfox/jquery-commons
+ *
+ * Copyright (c) 2010 Deepu Mohan Puthrote
+ * Licensed under the MIT license.
+ */
+
 jQuery.fn.debug = function() {
   return this.each(function(){
     alert(this);

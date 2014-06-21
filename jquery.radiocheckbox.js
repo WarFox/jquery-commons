@@ -1,3 +1,11 @@
+/*
+ * jquery.radiocheckbox.js
+ * https://github.com/warfox/jquery-commons
+ *
+ * Copyright (c) 2010 Deepu Mohan Puthrote
+ * Licensed under the MIT license.
+ */
+
 /**
  * This plugin can be used to change the behaviour of checkbox group to that of
  * a radio button group.

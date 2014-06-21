@@ -1,4 +1,12 @@
 /*
+ * jquery.center.js
+ * https://github.com/warfox/jquery-commons
+ *
+ * Copyright (c) 2010 Deepu Mohan Puthrote
+ * Licensed under the MIT license.
+ */
+
+/*
     Plugin to center any element in page.
     This will automatically center an element based on the options given.
     By default it will center the element both vertically and horizontally.
