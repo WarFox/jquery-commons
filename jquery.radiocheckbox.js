@@ -7,20 +7,20 @@
 jQuery.fn.RadioCheckBox = function () {
 
     return this.each(function() {
-       
+
         $(this).change(function() {
-        
+
         	var checked =  $(this).is(':checked');
             var name = $(this).attr('name');
             var val = $(this).val();
             var id = $(this).attr('id');
-            
+
             if(checked) {
                 $(':checkbox[name='+name+']').each(function() {
-                
+
                     if(id!=$(this).attr('id')) {
                         $(this).attr('checked',false).trigger('change');
-                    }                
+                    }
                 });
             }
         }).change();

@@ -1,20 +1,3 @@
-/*------------------------------------------------------------------------------
-Document   : jquery.commons.js
-$Rev::                                                $: Revision of last commit
-$Author::                                             $: Author of last commit
-$Date::                                               $: Date of last commit
---------------------------------------------------------------------------------
-Modification History
---------------------------------------------------------------------------------
-Date            Version     Author          Description
---------------------------------------------------------------------------------
-05-OCT-2010     1.0         Deepu Mohan P   Initial version
-30-MAR-2011     1.1         Deepu Mohan P   Formatted code and comments.
-                                            Removed re-declaration of variables.
-                                            Removed unused variables.
-------------------------------------------------------------------------------*/
-
-
 /**
  * Plugin to center any element in page.
  * This will automatically center an element based on the options given.
@@ -141,9 +124,4 @@ jQuery.fn.RadioCheckBox = function () {
         }).change();
     });
 };
-//------------------------------------------------------------------------------
-//
-//                           End of File
-//
-//          $Id$
 //------------------------------------------------------------------------------
